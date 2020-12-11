@@ -137,7 +137,7 @@ SgaApplication >> requestTitle: titleString message: messageString default: defa
 { #category : #'standard dialogs' }
 SgaApplication >> requestTitle: titleString message: messageString relativeTo: aWindowPresenter [
 	
-	self 
+	^ self 
 		requestTitle: titleString 
 		message: messageString 
 		default: ''
