@@ -31,6 +31,20 @@ SgaApplication >> confirmTitle: titleString message: messageString [
 ]
 
 { #category : #'standard dialogs' }
+SgaApplication >> confirmTitle: titleString message: messageString acceptLabel: acceptString cancelLabel: cancelLabel relativeTo: aWindowPresenter [
+	| dialog |
+
+	dialog := (SgaConfirmDialog newApplication: self)
+		title: titleString;
+		label: messageString;
+		acceptLabel: acceptString;
+		cancelLabel: cancelLabel;
+		openDialogWithSpecParent: aWindowPresenter.
+	
+	^ dialog isOk
+]
+
+{ #category : #'standard dialogs' }
 SgaApplication >> confirmTitle: titleString message: messageString relativeTo: aWindowPresenter [
 	| dialog |
 
