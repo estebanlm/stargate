@@ -81,6 +81,13 @@ SgaRequestDialog >> extent: aPoint [
 ]
 
 { #category : #initialization }
+SgaRequestDialog >> initialize [
+	
+	super initialize.
+	self title: 'Request'
+]
+
+{ #category : #initialization }
 SgaRequestDialog >> initializeDialogWindow: aDialogWindowPresenter [
 
 	super initializeDialogWindow: aDialogWindowPresenter.
@@ -109,6 +116,16 @@ SgaRequestDialog >> initializeWindow: aWindowPresenter [
 SgaRequestDialog >> label: aString [
 
 	label label: aString
+]
+
+{ #category : #api }
+SgaRequestDialog >> openDialogWithSpec [
+	| dialog |
+	
+	dialog := super openDialogWithSpec.
+	^ dialog isOk
+		ifTrue: [ self text trimmed ]
+		ifFalse: [ nil ]
 ]
 
 { #category : #accessing }

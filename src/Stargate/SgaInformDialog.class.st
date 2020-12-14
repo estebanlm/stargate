@@ -1,5 +1,5 @@
 Class {
-	#name : #SgaConfirmDialog,
+	#name : #SgaInformDialog,
 	#superclass : #SgaPresenter,
 	#instVars : [
 		'label',
@@ -13,25 +13,19 @@ Class {
 }
 
 { #category : #accessing }
-SgaConfirmDialog class >> defaultAcceptLabel [
+SgaInformDialog class >> defaultAcceptLabel [
 
-	^ 'Yes'
+	^ 'Ok'
 ]
 
 { #category : #accessing }
-SgaConfirmDialog class >> defaultCancelLabel [
-
-	^ 'No'
-]
-
-{ #category : #accessing }
-SgaConfirmDialog class >> defaultExtent [
+SgaInformDialog class >> defaultExtent [
 
 	^ 400@100
 ]
 
 { #category : #specs }
-SgaConfirmDialog class >> defaultSpec [
+SgaInformDialog class >> defaultSpec [
 
 	^ SpBoxLayout newVertical
 		borderWidth: 5;
@@ -45,60 +39,47 @@ SgaConfirmDialog class >> defaultSpec [
 ]
 
 { #category : #accessing }
-SgaConfirmDialog >> acceptLabel [
+SgaInformDialog >> acceptLabel [
 
 	^ acceptLabel ifNil: [ self class defaultAcceptLabel ]
 ]
 
 { #category : #accessing }
-SgaConfirmDialog >> acceptLabel: aString [
+SgaInformDialog >> acceptLabel: aString [
 
 	acceptLabel := aString
 ]
 
 { #category : #accessing }
-SgaConfirmDialog >> cancelLabel [
-
-	^ cancelLabel ifNil: [ self class defaultCancelLabel ]
-]
-
-{ #category : #accessing }
-SgaConfirmDialog >> cancelLabel: aString [
-
-	cancelLabel := aString
-]
-
-{ #category : #accessing }
-SgaConfirmDialog >> extent [
+SgaInformDialog >> extent [
 
 	^ initialExtent ifNil: [ self class defaultExtent ]
 ]
 
 { #category : #accessing }
-SgaConfirmDialog >> extent: aPoint [
+SgaInformDialog >> extent: aPoint [
 
 	initialExtent := aPoint
 ]
 
 { #category : #initialization }
-SgaConfirmDialog >> initialize [
-	
+SgaInformDialog >> initialize [
+
 	super initialize.
-	self title: 'Confirm'
+	self title: 'Inform'
 ]
 
 { #category : #initialization }
-SgaConfirmDialog >> initializeDialogWindow: aDialogWindowPresenter [
+SgaInformDialog >> initializeDialogWindow: aDialogWindowPresenter [
 
 	super initializeDialogWindow: aDialogWindowPresenter.
 	aDialogWindowPresenter
-		addButton: self cancelLabel do: [ :presenter | presenter beCancel; close ];
 		addDefaultButton: self acceptLabel do: [ :presenter | presenter beOk; close ]
 		
 ]
 
 { #category : #initialization }
-SgaConfirmDialog >> initializePresenters [
+SgaInformDialog >> initializePresenters [
 
 	image := self newImage.
 	label := self newLabel.
@@ -106,7 +87,7 @@ SgaConfirmDialog >> initializePresenters [
 ]
 
 { #category : #initialization }
-SgaConfirmDialog >> initializeWindow: aWindowPresenter [
+SgaInformDialog >> initializeWindow: aWindowPresenter [
 
 	aWindowPresenter
 		title: self title;
@@ -114,27 +95,19 @@ SgaConfirmDialog >> initializeWindow: aWindowPresenter [
 ]
 
 { #category : #accessing }
-SgaConfirmDialog >> label: aString [
+SgaInformDialog >> label: aString [
 
 	label label: aString
 ]
 
-{ #category : #api }
-SgaConfirmDialog >> openDialogWithSpec [
-	| dialog |
-	
-	dialog := super openDialogWithSpec.
-	^ dialog isOk
-]
-
 { #category : #accessing }
-SgaConfirmDialog >> title [
+SgaInformDialog >> title [
 
 	^ title
 ]
 
 { #category : #accessing }
-SgaConfirmDialog >> title: aString [
+SgaInformDialog >> title: aString [
 
 	title := aString
 ]
