@@ -85,6 +85,12 @@ SgaApplication >> newRequest [
 	^ SgaRequestDialog newApplication: self
 ]
 
+{ #category : #'standard dialogs' }
+SgaApplication >> newSelect [
+
+	^ SgaSelectDialog newApplication: self
+]
+
 { #category : #accessing }
 SgaApplication >> notificationCenter [
 
