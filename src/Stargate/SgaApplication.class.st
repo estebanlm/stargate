@@ -12,26 +12,13 @@ Class {
 	#superclass : #SpApplication,
 	#instVars : [
 		'notificationCenter',
-		'standalone',
-		'iconProvider'
+		'standalone'
 	],
 	#classVars : [
 		'Current'
 	],
 	#category : #'Stargate-Application'
 }
-
-{ #category : #'accessing resources' }
-SgaApplication >> iconNamed: aString [
-
-	^ self iconProvider iconNamed: aString
-]
-
-{ #category : #'accessing resources' }
-SgaApplication >> iconProvider [
-
-	^ iconProvider ifNil: [ iconProvider := self newIconProvider ]
-]
 
 { #category : #initialization }
 SgaApplication >> initialize [
@@ -59,12 +46,6 @@ SgaApplication >> isStandalone [
 SgaApplication >> newConfirm [
 
 	^ SgaConfirmDialog newApplication: self
-]
-
-{ #category : #'private factory' }
-SgaApplication >> newIconProvider [
-
-	^ SgaPharoThemeIconProvider new
 ]
 
 { #category : #'standard dialogs' }

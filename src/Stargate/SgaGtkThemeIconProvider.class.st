@@ -1,6 +1,6 @@
 Class {
 	#name : #SgaGtkThemeIconProvider,
-	#superclass : #SgaIconProvider,
+	#superclass : #SpIconProvider,
 	#category : #'Stargate-IconProvider'
 }
 
