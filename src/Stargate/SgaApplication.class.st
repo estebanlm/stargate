@@ -21,6 +21,12 @@ Class {
 }
 
 { #category : #initialization }
+SgaApplication >> exitApplication [
+
+	Smalltalk exitSuccess
+]
+
+{ #category : #initialization }
 SgaApplication >> initialize [
 
 	super initialize.
@@ -82,4 +88,26 @@ SgaApplication >> notificationCenter [
 SgaApplication >> prepareAsStandaloneApplication [
 	
 	standalone := true
+]
+
+{ #category : #testing }
+SgaApplication >> shouldExitWhenNoMoreWindows [
+
+	^ true
+]
+
+{ #category : #private }
+SgaApplication >> unregisterWindow: aWindow [
+
+	super unregisterWindow: aWindow.
+	self verifyPossibleExit
+]
+
+{ #category : #private }
+SgaApplication >> verifyPossibleExit [
+
+	self windows ifNotEmpty: [ ^ self ].
+	self isStandalone ifFalse: [ ^ self ].
+	self shouldExitWhenNoMoreWindows ifFalse: [ ^ self ].
+	self exitApplication
 ]
