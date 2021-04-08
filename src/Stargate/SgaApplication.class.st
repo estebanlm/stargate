@@ -73,6 +73,12 @@ SgaApplication >> newRequest [
 ]
 
 { #category : #'standard dialogs' }
+SgaApplication >> newRequestText [
+
+	^ SgaRequestTextDialog newApplication: self
+]
+
+{ #category : #'standard dialogs' }
 SgaApplication >> newSelect [
 
 	^ SgaSelectDialog newApplication: self
