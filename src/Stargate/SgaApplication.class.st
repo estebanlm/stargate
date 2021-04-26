@@ -54,6 +54,12 @@ SgaApplication >> newNotificationCenter [
 	^ SgaNotificationCenter new
 ]
 
+{ #category : #'standard dialogs' }
+SgaApplication >> newRequestText [
+
+	^ SgaRequestTextDialog newApplication: self
+]
+
 { #category : #accessing }
 SgaApplication >> notificationCenter [
 
