@@ -10,3 +10,11 @@ SpCommand >> asActionButtonPresenter [
 		action: [ self execute ];
 		yourself
 ]
+
+{ #category : #'*Stargate' }
+SpCommand >> asLabelledActionButtonPresenter [
+	
+	^ self asActionButtonPresenter
+		label: self name;
+		yourself
+]
