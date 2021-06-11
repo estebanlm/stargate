@@ -12,7 +12,7 @@ SpCommand >> asActionButtonPresenter [
 ]
 
 { #category : #'*Stargate' }
-SpCommand >> asLabelledActionButtonPresenter [
+SpCommand >> asLabeledActionButtonPresenter [
 	
 	^ self asActionButtonPresenter
 		label: self name;
