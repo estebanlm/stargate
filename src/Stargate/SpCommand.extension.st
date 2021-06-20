@@ -1,7 +1,7 @@
 Extension { #name : #SpCommand }
 
 { #category : #'*Stargate' }
-SpCommand >> asActionButtonPresenter [
+SpCommand >> asButtonPresenter [
 	
 	^ SpButtonPresenter new
 		owner: self context;
@@ -12,9 +12,21 @@ SpCommand >> asActionButtonPresenter [
 ]
 
 { #category : #'*Stargate' }
-SpCommand >> asLabeledActionButtonPresenter [
+SpCommand >> asLabeledButtonPresenter [
 	
-	^ self asActionButtonPresenter
+	^ self asButtonPresenter
 		label: self name;
+		yourself
+]
+
+{ #category : #'*Stargate' }
+SpCommand >> asToggleButtonPresenter [
+	
+	^ SpToggleButtonPresenter new
+		owner: self context;
+		help: self description;
+		icon: self icon;
+		whenActivatedDo: [ self execute ];
+		whenDeactivatedDo: [ self execute ];
 		yourself
 ]
