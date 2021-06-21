@@ -1,7 +1,7 @@
 Extension { #name : #SpCommand }
 
 { #category : #'*Stargate' }
-SpCommand >> asButtonPresenter [
+SpCommand >> asActionButtonPresenter [
 	
 	^ SpButtonPresenter new
 		owner: self context;
@@ -14,7 +14,7 @@ SpCommand >> asButtonPresenter [
 { #category : #'*Stargate' }
 SpCommand >> asLabeledButtonPresenter [
 	
-	^ self asButtonPresenter
+	^ self asActionButtonPresenter
 		label: self name;
 		yourself
 ]
