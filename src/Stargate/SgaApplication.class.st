@@ -48,6 +48,12 @@ SgaApplication >> isStandalone [
 	^ standalone ifNil: [ standalone := false ]
 ]
 
+{ #category : #'instance creation' }
+SgaApplication >> newFileChooser [
+
+	^ SgaFileChooserDialog newApplication: self
+]
+
 { #category : #'private factory' }
 SgaApplication >> newNotificationCenter [
 
