@@ -8,7 +8,7 @@ Class {
 SgaGtkThemeIconProvider >> iconNamed: aName ifAbsent: aBlock [
 	| icon |
 
-	icon := GtkRunLoop defer: [ GtkImage newIconForButtonNamed: aName asString ].
+	icon := GRunLoop defer: [ GtkImage newIconForButtonNamed: aName asString ].
 	icon isNull ifTrue: [ ^ aBlock value ].
 	^ icon
 ]

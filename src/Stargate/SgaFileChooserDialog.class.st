@@ -215,7 +215,7 @@ SgaFileChooserDialog >> openModalWithSpec [
 { #category : #'api - showing' }
 SgaFileChooserDialog >> openModalWithSpecParent: aWindowPresenter [
 
-	^ GtkRunLoop defer: [ self deferredRunWithSpecParent: aWindowPresenter ]
+	^ GRunLoop defer: [ self deferredRunWithSpecParent: aWindowPresenter ]
 ]
 
 { #category : #accessing }
