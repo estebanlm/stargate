@@ -9,7 +9,8 @@ Class {
 		'cancelLabel',
 		'choices',
 		'currentName',
-		'overrideConfirmation'
+		'overrideConfirmation',
+		'currentFolder'
 	],
 	#pools : [
 		'GtkFileChooserAction',
@@ -148,15 +149,27 @@ SgaFileChooserDialog >> choices [
 ]
 
 { #category : #accessing }
+SgaFileChooserDialog >> currentFolder [
+
+	^ currentFolder
+]
+
+{ #category : #accessing }
+SgaFileChooserDialog >> currentFolder: aString [
+
+	currentFolder := aString
+]
+
+{ #category : #accessing }
 SgaFileChooserDialog >> currentName [
 
 	^ currentName
 ]
 
 { #category : #accessing }
-SgaFileChooserDialog >> currentName: anObject [
+SgaFileChooserDialog >> currentName: aString [
 
-	currentName := anObject
+	currentName := aString
 ]
 
 { #category : #private }
@@ -171,8 +184,8 @@ SgaFileChooserDialog >> deferredRunWithSpecParent: aWindowPresenter [
 
 	choices do: [ :aChoice | aChoice addTo: dialog ].
 	dialog overrideConfirmation: self isOverrideConfirmation.
-	self currentName ifNotNil: [ 
-		dialog currentName: self currentName ].
+	self currentFolder ifNotNil: [ :aString | dialog currentFolder: aString ].
+	self currentName ifNotNil: [ :aString | dialog currentName: aString ].
 
 	aWindowPresenter ifNotNil: [ 
 		dialog transientTo: aWindowPresenter adapter widget ].
