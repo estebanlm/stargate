@@ -52,6 +52,13 @@ SgaPresenter >> openDialogWithSpecParent: aWindow [
 	^ self openDialogWithSpec
 ]
 
+{ #category : #api }
+SgaPresenter >> openModalWithSpecParent: aWindow [
+	
+	parentWindow := aWindow.
+	^ self openModalWithSpec
+]
+
 { #category : #accessing }
 SgaPresenter >> parentWindow [
 
