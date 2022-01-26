@@ -220,15 +220,15 @@ SgaFileChooserDialog >> isOverrideConfirmation [
 ]
 
 { #category : #'api - showing' }
-SgaFileChooserDialog >> openModalWithSpec [
+SgaFileChooserDialog >> openModalWithParent: aWindowPresenter [
 
-	^ self openModalWithSpecParent: nil
+	^ GRunLoop defer: [ self deferredRunWithSpecParent: aWindowPresenter ]
 ]
 
 { #category : #'api - showing' }
-SgaFileChooserDialog >> openModalWithSpecParent: aWindowPresenter [
+SgaFileChooserDialog >> openModalWithSpec [
 
-	^ GRunLoop defer: [ self deferredRunWithSpecParent: aWindowPresenter ]
+	^ self openModalWithParent: nil
 ]
 
 { #category : #accessing }
