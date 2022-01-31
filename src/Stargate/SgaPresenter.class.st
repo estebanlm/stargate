@@ -20,14 +20,14 @@ Class {
 SgaPresenter class >> open [
 	<script>
 	
-	^ self new openWithSpec
+	^ self new open
 ]
 
 { #category : #'instance creation' }
 SgaPresenter class >> openDialog [
 	<script>
 	
-	^ self new openDialogWithSpec
+	^ self new openDialog
 ]
 
 { #category : #initialization }

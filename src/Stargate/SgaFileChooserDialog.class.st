@@ -50,7 +50,7 @@ SgaFileChooserDialog class >> example [
 			selectedIndex: 1; 
 		addBooleanChoice: 'Open exported document' default: true;
 		currentName: 'test';
-		openModalWithSpec.
+		openModal.
 
 ]
 
@@ -173,7 +173,7 @@ SgaFileChooserDialog >> currentName: aString [
 ]
 
 { #category : #private }
-SgaFileChooserDialog >> deferredRunWithSpecParent: aWindowPresenter [
+SgaFileChooserDialog >> deferredRunWithParent: aWindowPresenter [
 	| choosenFile dialog result |
 
 	dialog := GtkFileChooserDialog 
@@ -220,15 +220,15 @@ SgaFileChooserDialog >> isOverrideConfirmation [
 ]
 
 { #category : #'api - showing' }
-SgaFileChooserDialog >> openModalWithParent: aWindowPresenter [
+SgaFileChooserDialog >> openModal [
 
-	^ GRunLoop defer: [ self deferredRunWithSpecParent: aWindowPresenter ]
+	^ self openModalWithParent: nil
 ]
 
 { #category : #'api - showing' }
-SgaFileChooserDialog >> openModalWithSpec [
+SgaFileChooserDialog >> openModalWithParent: aWindowPresenter [
 
-	^ self openModalWithParent: nil
+	^ GRunLoop defer: [ self deferredRunWithParent: aWindowPresenter ]
 ]
 
 { #category : #accessing }
