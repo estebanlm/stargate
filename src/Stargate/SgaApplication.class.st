@@ -48,7 +48,13 @@ SgaApplication >> isStandalone [
 	^ standalone ifNil: [ standalone := false ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : #'standard dialogs' }
+SgaApplication >> newColorChooser [
+
+	^ SgaColorChooserDialog newApplication: self
+]
+
+{ #category : #'standard dialogs' }
 SgaApplication >> newFileChooser [
 
 	^ SgaFileChooserDialog newApplication: self

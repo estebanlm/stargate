@@ -1,10 +1,8 @@
 Class {
 	#name : #SgaFileChooserDialog,
-	#superclass : #Object,
+	#superclass : #SgaStandarDialog,
 	#instVars : [
-		'application',
 		'type',
-		'title',
 		'acceptLabel',
 		'cancelLabel',
 		'choices',
@@ -13,8 +11,7 @@ Class {
 		'currentFolder'
 	],
 	#pools : [
-		'GtkFileChooserAction',
-		'GtkResponseType'
+		'GtkFileChooserAction'
 	],
 	#category : #'Stargate-Utils'
 }
@@ -52,14 +49,6 @@ SgaFileChooserDialog class >> example [
 		currentName: 'test';
 		openModal.
 
-]
-
-{ #category : #'instance creation' }
-SgaFileChooserDialog class >> newApplication: anApplication [
-
-	^ self new 
-		application: anApplication;
-		yourself
 ]
 
 { #category : #accessing }
@@ -110,18 +99,6 @@ SgaFileChooserDialog >> addChoice: aLabel options: optionsArray selectedIndex: i
 		options: optionsArray;
 		selectedIndex: index;
 		yourself)
-]
-
-{ #category : #accessing }
-SgaFileChooserDialog >> application [
-
-	^ application
-]
-
-{ #category : #accessing }
-SgaFileChooserDialog >> application: anObject [
-
-	application := anObject
 ]
 
 { #category : #accessing }
@@ -206,7 +183,6 @@ SgaFileChooserDialog >> initialize [
 
 	super initialize.
 	self type: GTK_FILE_CHOOSER_ACTION_OPEN.
-	self title: self class defaultTitle.
 	self acceptLabel: self class defaultAcceptLabel.
 	self cancelLabel: self class defaultCancelLabel.
 	overrideConfirmation := true.
@@ -219,34 +195,10 @@ SgaFileChooserDialog >> isOverrideConfirmation [
 	^ overrideConfirmation
 ]
 
-{ #category : #'api - showing' }
-SgaFileChooserDialog >> openModal [
-
-	^ self openModalWithParent: nil
-]
-
-{ #category : #'api - showing' }
-SgaFileChooserDialog >> openModalWithParent: aWindowPresenter [
-
-	^ GRunLoop defer: [ self deferredRunWithParent: aWindowPresenter ]
-]
-
 { #category : #accessing }
 SgaFileChooserDialog >> overrideConfirmation: anObject [
 
 	overrideConfirmation := anObject
-]
-
-{ #category : #accessing }
-SgaFileChooserDialog >> title [
-
-	^ title
-]
-
-{ #category : #accessing }
-SgaFileChooserDialog >> title: anObject [
-
-	title := anObject
 ]
 
 { #category : #accessing }
