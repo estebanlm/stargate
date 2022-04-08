@@ -82,11 +82,9 @@ SgaApplication >> notificationCenter [
 SgaApplication >> prepareAsStandaloneApplication [
 	
 	standalone := true.
-	
 	"1hr... maybe too much?"
 	Smalltalk vm isRunningInWorkerThread 
 		ifTrue: [ ProcessorScheduler idleTime: 3600000000 ]
-	
 ]
 
 { #category : #testing }
