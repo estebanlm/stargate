@@ -12,5 +12,7 @@ Class {
 { #category : #visiting }
 SgaContextMenuFormatter >> visitCommand: aCmCommand [
 
-	aCmCommand iconName: nil
+	aCmCommand 
+		icon: nil;
+		iconName: nil
 ]
