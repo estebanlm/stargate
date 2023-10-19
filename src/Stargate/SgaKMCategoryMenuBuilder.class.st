@@ -1,38 +1,40 @@
 Class {
-	#name : #SgaKMCategoryMenuBuilder,
-	#superclass : #Object,
+	#name : 'SgaKMCategoryMenuBuilder',
+	#superclass : 'Object',
 	#instVars : [
 		'kmCategory'
 	],
-	#category : #'Stargate-Visitors'
+	#category : 'Stargate-Visitors',
+	#package : 'Stargate',
+	#tag : 'Visitors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaKMCategoryMenuBuilder class >> menuPresenterClass [
 	^ SpMenuPresenter
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaKMCategoryMenuBuilder >> initialize [
 	
 	super initialize.
 	kmCategory := KMCategory new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaKMCategoryMenuBuilder >> kmCategory [
 
 	^ kmCategory
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 SgaKMCategoryMenuBuilder >> visitMenuGroupPresenter: aMenuGroupPresenter [
 
 	aMenuGroupPresenter menuItems 
 		do: [ :each | each accept: self ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 SgaKMCategoryMenuBuilder >> visitMenuItemPresenter: aMenuItemPresenter [
 
 	aMenuItemPresenter hasShortcut ifFalse: [ ^ self ].
@@ -45,7 +47,7 @@ SgaKMCategoryMenuBuilder >> visitMenuItemPresenter: aMenuItemPresenter [
 		ifNotNil: [ :subMenu | subMenu accept: self ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 SgaKMCategoryMenuBuilder >> visitMenuPresenter: aMenuPresenter [
 
 	aMenuPresenter menuGroups 

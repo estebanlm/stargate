@@ -1,14 +1,16 @@
 Class {
-	#name : #SgaFileChooserOptionsChoice,
-	#superclass : #SgaFileChooserChoice,
+	#name : 'SgaFileChooserOptionsChoice',
+	#superclass : 'SgaFileChooserChoice',
 	#instVars : [
 		'options',
 		'selectedIndex'
 	],
-	#category : #'Stargate-Utils'
+	#category : 'Stargate-Utils',
+	#package : 'Stargate',
+	#tag : 'Utils'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 SgaFileChooserOptionsChoice >> addTo: dialog [
 	
 	id := dialog addChoice: self label options: self options.
@@ -16,7 +18,7 @@ SgaFileChooserOptionsChoice >> addTo: dialog [
 		dialog choiceAt: id option: index ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SgaFileChooserOptionsChoice >> getFrom: dialog [
 	| choosen |
 	
@@ -24,25 +26,25 @@ SgaFileChooserOptionsChoice >> getFrom: dialog [
 	^ choosen ifNotNil: [ self options at: choosen asNumber ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserOptionsChoice >> options [
 
 	^ options
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserOptionsChoice >> options: anObject [
 
 	options := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserOptionsChoice >> selectedIndex [
 
 	^ selectedIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserOptionsChoice >> selectedIndex: anObject [
 
 	selectedIndex := anObject

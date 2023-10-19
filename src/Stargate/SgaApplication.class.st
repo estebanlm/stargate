@@ -8,25 +8,27 @@ It provides different common services for any application:
 - MORE TO COME
 "
 Class {
-	#name : #SgaApplication,
-	#superclass : #SpApplication,
+	#name : 'SgaApplication',
+	#superclass : 'SpApplication',
 	#instVars : [
-		'notificationCenter',
-		'standalone'
+		'standalone',
+		'sgaNotificationCenter'
 	],
 	#classVars : [
 		'Current'
 	],
-	#category : #'Stargate-Application'
+	#category : 'Stargate-Application',
+	#package : 'Stargate',
+	#tag : 'Application'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaApplication >> exitApplication [
 
 	Smalltalk exitSuccess
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaApplication >> initialize [
 
 	super initialize.
@@ -34,51 +36,51 @@ SgaApplication >> initialize [
 	self initializeModel
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaApplication >> initializeBackend [
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaApplication >> initializeModel [
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgaApplication >> isStandalone [
 
 	^ standalone ifNil: [ standalone := false ]
 ]
 
-{ #category : #'standard dialogs' }
+{ #category : 'standard dialogs' }
 SgaApplication >> newColorChooser [
 
 	^ SgaColorChooserDialog newApplication: self
 ]
 
-{ #category : #'standard dialogs' }
+{ #category : 'standard dialogs' }
 SgaApplication >> newFileChooser [
 
 	^ SgaFileChooserDialog newApplication: self
 ]
 
-{ #category : #'private factory' }
+{ #category : 'private factory' }
 SgaApplication >> newNotificationCenter [
 
 	^ SgaNotificationCenter new
 ]
 
-{ #category : #'standard dialogs' }
+{ #category : 'standard dialogs' }
 SgaApplication >> newRequestText [
 
 	^ SgaRequestTextDialog newApplication: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaApplication >> notificationCenter [
 
-	^ notificationCenter ifNil: [ notificationCenter := self newNotificationCenter ]
+	^ sgaNotificationCenter ifNil: [ sgaNotificationCenter := self newNotificationCenter ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaApplication >> prepareAsStandaloneApplication [
 	
 	standalone := true.
@@ -87,20 +89,20 @@ SgaApplication >> prepareAsStandaloneApplication [
 		ifTrue: [ ProcessorScheduler idleTime: 3600000000 ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgaApplication >> shouldExitWhenNoMoreWindows [
 
 	^ true
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaApplication >> unregisterWindow: aWindow [
 
 	super unregisterWindow: aWindow.
 	self verifyPossibleExit
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaApplication >> verifyPossibleExit [
 
 	self windows ifNotEmpty: [ ^ self ].

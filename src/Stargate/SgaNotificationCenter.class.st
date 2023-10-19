@@ -1,6 +1,6 @@
 Class {
-	#name : #SgaNotificationCenter,
-	#superclass : #Object,
+	#name : 'SgaNotificationCenter',
+	#superclass : 'Object',
 	#instVars : [
 		'prioritySubscriptions'
 	],
@@ -8,30 +8,32 @@ Class {
 		'PRIORITY_DEFAULT',
 		'PRIORITY_HIGH'
 	],
-	#category : #'Stargate-NotificationCenter'
+	#category : 'Stargate-NotificationCenter',
+	#package : 'Stargate',
+	#tag : 'NotificationCenter'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 SgaNotificationCenter class >> initialize [
 
 	PRIORITY_DEFAULT := 2.
 	PRIORITY_HIGH := 1
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaNotificationCenter >> dispatchNotification: aNotification to: anObject [
 
 	aNotification dispatchTo: anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaNotificationCenter >> dispatchNotification: aNotification toAll: aSet [
 
 	aSet do: [ :each | 
 		self dispatchNotification: aNotification to: each ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaNotificationCenter >> initialize [
 
 	super initialize.
@@ -41,7 +43,7 @@ SgaNotificationCenter >> initialize [
 		yourself
 ]
 
-{ #category : #notifying }
+{ #category : 'notifying' }
 SgaNotificationCenter >> notify: aNotification [
 	"I will send notification to all direct subscribers, but also to subscribers to the parent(s)
 	 of the notification. For example, if I have 
@@ -58,13 +60,13 @@ SgaNotificationCenter >> notify: aNotification [
 		class := class superclass ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaNotificationCenter >> prioritySubscriptionsAt: aNumber [
 		
 	^ prioritySubscriptions at: aNumber
 ]
 
-{ #category : #subscribing }
+{ #category : 'subscribing' }
 SgaNotificationCenter >> subscribe: anObject to: anAnnouncementClass [
 
 	self 
@@ -73,7 +75,7 @@ SgaNotificationCenter >> subscribe: anObject to: anAnnouncementClass [
 		priority: PRIORITY_DEFAULT
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaNotificationCenter >> subscribe: anObject to: anAnnouncementClass priority: aNumber [
 
 	((self prioritySubscriptionsAt: aNumber)
@@ -82,7 +84,7 @@ SgaNotificationCenter >> subscribe: anObject to: anAnnouncementClass priority: a
 		add: anObject
 ]
 
-{ #category : #subscribing }
+{ #category : 'subscribing' }
 SgaNotificationCenter >> subscribeHigh: anObject to: anAnnouncementClass [
 
 	self 
@@ -91,7 +93,7 @@ SgaNotificationCenter >> subscribeHigh: anObject to: anAnnouncementClass [
 		priority: PRIORITY_HIGH
 ]
 
-{ #category : #subscribing }
+{ #category : 'subscribing' }
 SgaNotificationCenter >> subscriptionsTo: anAnnouncementClass [ 
 	
 	^ (prioritySubscriptions collect: [ :each | 

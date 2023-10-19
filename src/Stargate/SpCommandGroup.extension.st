@@ -1,6 +1,6 @@
-Extension { #name : #SpCommandGroup }
+Extension { #name : 'SpCommandGroup' }
 
-{ #category : #'*Stargate' }
+{ #category : '*Stargate' }
 SpCommandGroup >> prepareForContextMenu [
 
 	SgaContextMenuFormatter new visit: self

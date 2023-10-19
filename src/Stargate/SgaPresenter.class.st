@@ -8,29 +8,31 @@ I define common behaviour for all Crono windows and panels, such as:
 - apply window toolbar/menu actions
 "
 Class {
-	#name : #SgaPresenter,
-	#superclass : #SpPresenter,
+	#name : 'SgaPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'#parentWindow => WeakSlot'
 	],
-	#category : #'Stargate-Presenters'
+	#category : 'Stargate-Presenters',
+	#package : 'Stargate',
+	#tag : 'Presenters'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgaPresenter class >> open [
 	<script>
 	
 	^ self new open
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgaPresenter class >> openDialog [
 	<script>
 	
 	^ self new openDialog
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaPresenter >> initializeDialogWindow: aDialogWindowPresenter [
 
 	self parentWindow 
@@ -38,28 +40,28 @@ SgaPresenter >> initializeDialogWindow: aDialogWindowPresenter [
 		ifNil: [ aDialogWindowPresenter centered ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaPresenter >> initializeWindow: aWindowPresenter [
 
 	self traversePresentersDo: [ :each |
 		each addGlobalShortcutsTo: aWindowPresenter ]
 ]
 
-{ #category : #api }
+{ #category : 'api' }
 SgaPresenter >> openDialogWithParent: aWindow [
 	
 	parentWindow := aWindow.
 	^ self openDialog
 ]
 
-{ #category : #api }
+{ #category : 'api' }
 SgaPresenter >> openModalWithParent: aWindow [
 	
 	parentWindow := aWindow.
 	^ self openModal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaPresenter >> parentWindow [
 
 	^ parentWindow

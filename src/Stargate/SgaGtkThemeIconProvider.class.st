@@ -1,10 +1,12 @@
 Class {
-	#name : #SgaGtkThemeIconProvider,
-	#superclass : #SpIconProvider,
-	#category : #'Stargate-IconProvider'
+	#name : 'SgaGtkThemeIconProvider',
+	#superclass : 'SpIconProvider',
+	#category : 'Stargate-IconProvider',
+	#package : 'Stargate',
+	#tag : 'IconProvider'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaGtkThemeIconProvider >> iconNamed: aName ifAbsent: aBlock [
 	| icon |
 

@@ -1,6 +1,6 @@
-Extension { #name : #SpMenuGroupPresenter }
+Extension { #name : 'SpMenuGroupPresenter' }
 
-{ #category : #'*Stargate' }
+{ #category : '*Stargate' }
 SpMenuGroupPresenter >> accept: aVisitor [
 
 	^ aVisitor visitMenuGroupPresenter: self

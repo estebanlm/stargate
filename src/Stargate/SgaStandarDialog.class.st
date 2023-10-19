@@ -1,6 +1,6 @@
 Class {
-	#name : #SgaStandarDialog,
-	#superclass : #Object,
+	#name : 'SgaStandarDialog',
+	#superclass : 'Object',
 	#instVars : [
 		'application',
 		'title'
@@ -8,16 +8,18 @@ Class {
 	#pools : [
 		'GtkResponseType'
 	],
-	#category : #'Stargate-Utils'
+	#category : 'Stargate-Utils',
+	#package : 'Stargate',
+	#tag : 'Utils'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaStandarDialog class >> defaultTitle [
 
 	^ 'Untitled'
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgaStandarDialog class >> newApplication: anApplication [
 
 	^ self new 
@@ -25,50 +27,50 @@ SgaStandarDialog class >> newApplication: anApplication [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaStandarDialog >> application [
 
 	^ application
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaStandarDialog >> application: anApplication [
 
 	application := anApplication
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaStandarDialog >> deferredRunWithParent: aWindowPresenter [
 
 	self subclassResponsibility
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaStandarDialog >> initialize [
 
 	super initialize.
 	self title: self class defaultTitle.
 ]
 
-{ #category : #'api - showing' }
+{ #category : 'api - showing' }
 SgaStandarDialog >> openModal [
 
 	^ self openModalWithParent: nil
 ]
 
-{ #category : #'api - showing' }
+{ #category : 'api - showing' }
 SgaStandarDialog >> openModalWithParent: aWindowPresenter [
 
 	^ GRunLoop defer: [ self deferredRunWithParent: aWindowPresenter ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaStandarDialog >> title [
 
 	^ title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaStandarDialog >> title: aString [
 
 	title := aString

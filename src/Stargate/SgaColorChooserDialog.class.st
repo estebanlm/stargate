@@ -1,34 +1,36 @@
 Class {
-	#name : #SgaColorChooserDialog,
-	#superclass : #SgaStandarDialog,
+	#name : 'SgaColorChooserDialog',
+	#superclass : 'SgaStandarDialog',
 	#instVars : [
 		'palette',
 		'paletteLineSize',
 		'color',
 		'horizontal'
 	],
-	#category : #'Stargate-Utils'
+	#category : 'Stargate-Utils',
+	#package : 'Stargate',
+	#tag : 'Utils'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaColorChooserDialog >> beHorizontal [
 
 	horizontal := true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaColorChooserDialog >> beVertical [
 
 	horizontal := false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaColorChooserDialog >> color: aColor [
 	
 	color := aColor
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaColorChooserDialog >> deferredRunWithParent: aWindowPresenter [
 	| dialog result |
 
@@ -50,14 +52,14 @@ SgaColorChooserDialog >> deferredRunWithParent: aWindowPresenter [
 		ifFalse: [ nil ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaColorChooserDialog >> initialize [
 
 	super initialize.
 	horizontal := true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaColorChooserDialog >> palette: colors size: line [
 
 	palette := colors.

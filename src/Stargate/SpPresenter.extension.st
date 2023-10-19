@@ -1,6 +1,6 @@
-Extension { #name : #SpPresenter }
+Extension { #name : 'SpPresenter' }
 
-{ #category : #'*Stargate' }
+{ #category : '*Stargate' }
 SpPresenter >> addGlobalShortcutsTo: aWindowPresenter [
 	"fill with your shoutcuts"
 ]

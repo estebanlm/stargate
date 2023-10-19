@@ -1,19 +1,21 @@
 Trait {
-	#name : #SgaTAliasIconTable,
+	#name : 'SgaTAliasIconTable',
 	#instVars : [
 		'aliases'
 	],
-	#category : #'Stargate-IconProvider'
+	#category : 'Stargate-IconProvider',
+	#package : 'Stargate',
+	#tag : 'IconProvider'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaTAliasIconTable >> addAliasesFromPairs: aCollection [
 
 	aCollection pairsDo: [ :aName :anAlias | 
 		self aliasAt: aName put: anAlias ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaTAliasIconTable >> aliasAt: aName put: anAlias [
 
 	self aliases 
@@ -21,7 +23,7 @@ SgaTAliasIconTable >> aliasAt: aName put: anAlias [
 		put: anAlias
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaTAliasIconTable >> aliasFor: aName [
 
 	^ self aliases
@@ -29,13 +31,13 @@ SgaTAliasIconTable >> aliasFor: aName [
 		ifAbsent: [ aName ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaTAliasIconTable >> aliases [
 
 	^ aliases ifNil: [ aliases := SmallDictionary new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaTAliasIconTable >> iconNamed: aName ifAbsent: aBlock [
 
 	^ super 

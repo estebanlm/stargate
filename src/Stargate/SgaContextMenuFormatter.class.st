@@ -4,12 +4,14 @@ This is needed this because commander cannot differentiate between a command to 
 
 "
 Class {
-	#name : #SgaContextMenuFormatter,
-	#superclass : #CmVisitor,
-	#category : #'Stargate-Application'
+	#name : 'SgaContextMenuFormatter',
+	#superclass : 'CmVisitor',
+	#category : 'Stargate-Application',
+	#package : 'Stargate',
+	#tag : 'Application'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 SgaContextMenuFormatter >> visitCommand: aCmCommand [
 
 	aCmCommand 

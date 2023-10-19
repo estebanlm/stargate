@@ -1,6 +1,6 @@
 Class {
-	#name : #SgaFileChooserDialog,
-	#superclass : #SgaStandarDialog,
+	#name : 'SgaFileChooserDialog',
+	#superclass : 'SgaStandarDialog',
 	#instVars : [
 		'type',
 		'acceptLabel',
@@ -13,28 +13,30 @@ Class {
 	#pools : [
 		'GtkFileChooserAction'
 	],
-	#category : #'Stargate-Utils'
+	#category : 'Stargate-Utils',
+	#package : 'Stargate',
+	#tag : 'Utils'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog class >> defaultAcceptLabel [
 
 	^ 'Accept'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog class >> defaultCancelLabel [
 
 	^ 'Cancel'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog class >> defaultTitle [
 
 	^ 'Open...'
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 SgaFileChooserDialog class >> example [ 
 
 	^ (self newApplication: (SpApplication new useBackend: #Gtk))
@@ -51,26 +53,26 @@ SgaFileChooserDialog class >> example [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> acceptLabel [
 
 	^ acceptLabel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> acceptLabel: anObject [
 
 	acceptLabel := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> addBooleanChoice: aLabel [
 	"a boolean choice"
 	
 	self addBooleanChoice: aLabel default: false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> addBooleanChoice: aLabel default: aBoolean [
 	"a boolean choice"
 	
@@ -80,7 +82,7 @@ SgaFileChooserDialog >> addBooleanChoice: aLabel default: aBoolean [
 		yourself) 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> addChoice: aLabel options: optionsArray [
 
 	^ self 
@@ -91,7 +93,7 @@ SgaFileChooserDialog >> addChoice: aLabel options: optionsArray [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> addChoice: aLabel options: optionsArray selectedIndex: index [
 
 	choices add: (SgaFileChooserOptionsChoice new 
@@ -101,55 +103,55 @@ SgaFileChooserDialog >> addChoice: aLabel options: optionsArray selectedIndex: i
 		yourself)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> beSave [
 
 	self type: GTK_FILE_CHOOSER_ACTION_SAVE
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> cancelLabel [
 
 	^ cancelLabel
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> cancelLabel: anObject [
 
 	cancelLabel := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> choices [
 
 	^ choices
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> currentFolder [
 
 	^ currentFolder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> currentFolder: aString [
 
 	currentFolder := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> currentName [
 
 	^ currentName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> currentName: aString [
 
 	currentName := aString
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaFileChooserDialog >> deferredRunWithParent: aWindowPresenter [
 	| choosenFile dialog result |
 
@@ -178,7 +180,7 @@ SgaFileChooserDialog >> deferredRunWithParent: aWindowPresenter [
 	^ choosenFile
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaFileChooserDialog >> initialize [
 
 	super initialize.
@@ -189,25 +191,25 @@ SgaFileChooserDialog >> initialize [
 	choices := OrderedCollection new: 1
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgaFileChooserDialog >> isOverrideConfirmation [
 
 	^ overrideConfirmation
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> overrideConfirmation: anObject [
 
 	overrideConfirmation := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserDialog >> type [
 
 	^ type
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaFileChooserDialog >> type: anObject [
 
 	type := anObject

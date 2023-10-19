@@ -1,22 +1,24 @@
 Class {
-	#name : #SgaPresenterConfiguration,
-	#superclass : #Object,
-	#category : #'Stargate-Presenters'
+	#name : 'SgaPresenterConfiguration',
+	#superclass : 'Object',
+	#category : 'Stargate-Presenters',
+	#package : 'Stargate',
+	#tag : 'Presenters'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaPresenterConfiguration class >> applicationName [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaPresenterConfiguration class >> fileName [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SgaPresenterConfiguration class >> readFromFileSystem [
 	| reference |
 
@@ -26,13 +28,13 @@ SgaPresenterConfiguration class >> readFromFileSystem [
 		STON fromStream: stream  ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaPresenterConfiguration class >> reference [
 
 	^ (FileLocator preferences / self applicationName / self fileName) withExtension: 'ston'
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 SgaPresenterConfiguration >> referenceExists: reference [
 	
 	"self error: ('There is already a configuration file at {1}.' 
@@ -41,7 +43,7 @@ SgaPresenterConfiguration >> referenceExists: reference [
 	reference ensureDelete			
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 SgaPresenterConfiguration >> writeToFile [
 	| reference |
 

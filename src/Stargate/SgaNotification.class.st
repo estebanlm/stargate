@@ -1,34 +1,36 @@
 Class {
-	#name : #SgaNotification,
-	#superclass : #Object,
-	#category : #'Stargate-NotificationCenter'
+	#name : 'SgaNotification',
+	#superclass : 'Object',
+	#category : 'Stargate-NotificationCenter',
+	#package : 'Stargate',
+	#tag : 'NotificationCenter'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SgaNotification class >> asNotification [
 
 	^ self new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaNotification class >> receiverSelector [
 
 	^ #note:
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaNotification class >> systemIconName [
 
 	^ #announcementIcon
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SgaNotification >> asNotification [
 
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaNotification >> dispatchTo: anObject [
 	| selector |
 
@@ -41,7 +43,7 @@ SgaNotification >> dispatchTo: anObject [
 		with: self
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaNotification >> lookupSelectorOn: anObject [
 
 	^ self 
@@ -49,7 +51,7 @@ SgaNotification >> lookupSelectorOn: anObject [
 		for: self class
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SgaNotification >> lookupSelectorOn: anObject for: aNotificationClass [
 
 	^ (anObject respondsTo: aNotificationClass receiverSelector)
@@ -60,7 +62,7 @@ SgaNotification >> lookupSelectorOn: anObject for: aNotificationClass [
 			self lookupSelectorOn: anObject for: aNotificationClass superclass ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaNotification >> receiverSelector [
 
 	^ self class receiverSelector

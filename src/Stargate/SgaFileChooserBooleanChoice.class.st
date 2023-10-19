@@ -1,13 +1,15 @@
 Class {
-	#name : #SgaFileChooserBooleanChoice,
-	#superclass : #SgaFileChooserChoice,
+	#name : 'SgaFileChooserBooleanChoice',
+	#superclass : 'SgaFileChooserChoice',
 	#instVars : [
 		'selected'
 	],
-	#category : #'Stargate-Utils'
+	#category : 'Stargate-Utils',
+	#package : 'Stargate',
+	#tag : 'Utils'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 SgaFileChooserBooleanChoice >> addTo: dialog [
 	
 	id := dialog addBooleanChoice: self label.
@@ -15,19 +17,19 @@ SgaFileChooserBooleanChoice >> addTo: dialog [
 		dialog choiceAt: id option: 'true' ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SgaFileChooserBooleanChoice >> getFrom: dialog [
 
 	^ (dialog choiceAt: id) = 'true'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SgaFileChooserBooleanChoice >> isSelected [
 
 	^ selected
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SgaFileChooserBooleanChoice >> selected: aBoolean [
 
 	selected := aBoolean

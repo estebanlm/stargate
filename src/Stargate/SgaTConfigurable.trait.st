@@ -1,16 +1,18 @@
 Trait {
-	#name : #SgaTConfigurable,
-	#category : #'Stargate-Presenters'
+	#name : 'SgaTConfigurable',
+	#category : 'Stargate-Presenters',
+	#package : 'Stargate',
+	#tag : 'Presenters'
 }
 
-{ #category : #'private configuration' }
+{ #category : 'private configuration' }
 SgaTConfigurable >> configurationClass [
 	"Override me"
 
 	^ nil
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaTConfigurable >> initializeWindow: aWindowPresenter [
 
 	aWindowPresenter withConfigurationDo: [ :configuration |
@@ -19,13 +21,13 @@ SgaTConfigurable >> initializeWindow: aWindowPresenter [
 			configuration: aWindowPresenter ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaTConfigurable >> initializeWindow: aWindowPresenter configuration: configuration [
 
 	aWindowPresenter whenWillCloseDo: [ self storeSettings ]
 ]
 
-{ #category : #'private configuration' }
+{ #category : 'private configuration' }
 SgaTConfigurable >> storeSettings [
 
 	self withConfigurationDo: [ :configuration |
@@ -33,12 +35,12 @@ SgaTConfigurable >> storeSettings [
 		configuration writeToFile ]
 ]
 
-{ #category : #'private configuration' }
+{ #category : 'private configuration' }
 SgaTConfigurable >> storeSettingsInto: aConfiguration [
 	"Override me"
 ]
 
-{ #category : #'private configuration' }
+{ #category : 'private configuration' }
 SgaTConfigurable >> withConfigurationDo: aBlock [
 
 	self configurationClass ifNil: [ ^ self ].

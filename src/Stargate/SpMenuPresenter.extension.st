@@ -1,12 +1,12 @@
-Extension { #name : #SpMenuPresenter }
+Extension { #name : 'SpMenuPresenter' }
 
-{ #category : #'*Stargate' }
+{ #category : '*Stargate' }
 SpMenuPresenter >> accept: aVisitor [
 
 	aVisitor visitMenuPresenter: self
 ]
 
-{ #category : #'*Stargate' }
+{ #category : '*Stargate' }
 SpMenuPresenter >> asKMCategory [
 	| builder |
 	

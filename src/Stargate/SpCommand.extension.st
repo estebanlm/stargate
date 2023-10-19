@@ -1,6 +1,6 @@
-Extension { #name : #SpCommand }
+Extension { #name : 'SpCommand' }
 
-{ #category : #'*Stargate' }
+{ #category : '*Stargate' }
 SpCommand >> asActionButtonPresenter [
 	
 	^ SpButtonPresenter new
@@ -11,7 +11,7 @@ SpCommand >> asActionButtonPresenter [
 		yourself
 ]
 
-{ #category : #'*Stargate' }
+{ #category : '*Stargate' }
 SpCommand >> asLabeledButtonPresenter [
 	
 	^ self asActionButtonPresenter
@@ -19,7 +19,7 @@ SpCommand >> asLabeledButtonPresenter [
 		yourself
 ]
 
-{ #category : #'*Stargate' }
+{ #category : '*Stargate' }
 SpCommand >> asToggleButtonPresenter [
 	
 	^ SpToggleButtonPresenter new

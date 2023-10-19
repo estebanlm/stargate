@@ -1,10 +1,12 @@
 Class {
-	#name : #SgaRequestTextDialog,
-	#superclass : #SpRequestTextDialog,
-	#category : #'Stargate-Presenters'
+	#name : 'SgaRequestTextDialog',
+	#superclass : 'SpRequestTextDialog',
+	#category : 'Stargate-Presenters',
+	#package : 'Stargate',
+	#tag : 'Presenters'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SgaRequestTextDialog >> initializePresenters [
 
 	super initializePresenters.
