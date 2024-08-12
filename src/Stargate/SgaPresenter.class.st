@@ -44,7 +44,7 @@ SgaPresenter >> initializeDialogWindow: aDialogWindowPresenter [
 SgaPresenter >> initializeWindow: aWindowPresenter [
 
 	self traversePresentersDo: [ :each |
-		each addGlobalShortcutsTo: aWindowPresenter ]
+		each addGlobalActionsTo: aWindowPresenter ]
 ]
 
 { #category : 'api' }
