@@ -7,8 +7,14 @@ Class {
 }
 
 { #category : 'initialization' }
+SgaRequestTextDialog >> connectPresenters [ 
+	
+]
+
+{ #category : 'initialization' }
 SgaRequestTextDialog >> initializePresenters [
 
 	super initializePresenters.
+	textInput := self newText.
 	textInput addStyle: 'monospaceFont'
 ]
