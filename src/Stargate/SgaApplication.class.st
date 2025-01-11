@@ -14,9 +14,6 @@ Class {
 		'standalone',
 		'sgaNotificationCenter'
 	],
-	#classVars : [
-		'Current'
-	],
 	#category : 'Stargate-Application',
 	#package : 'Stargate',
 	#tag : 'Application'
