@@ -10,6 +10,8 @@ It provides different common services for any application:
 Class {
 	#name : 'SgaApplication',
 	#superclass : 'SpApplication',
+	#traits : 'SgaTApplication',
+	#classTraits : 'SgaTApplication classTrait',
 	#instVars : [
 		'standalone',
 		'sgaNotificationCenter'
@@ -75,15 +77,6 @@ SgaApplication >> newRequestText [
 SgaApplication >> notificationCenter [
 
 	^ sgaNotificationCenter ifNil: [ sgaNotificationCenter := self newNotificationCenter ]
-]
-
-{ #category : 'initialization' }
-SgaApplication >> prepareAsStandaloneApplication [
-	
-	standalone := true.
-	"1hr... maybe too much?"
-	Smalltalk vm isRunningInWorkerThread 
-		ifTrue: [ ProcessorScheduler idleTime: 3600000000 ]
 ]
 
 { #category : 'testing' }
