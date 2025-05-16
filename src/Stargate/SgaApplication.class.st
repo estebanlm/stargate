@@ -86,13 +86,6 @@ SgaApplication >> shouldExitWhenNoMoreWindows [
 ]
 
 { #category : 'private' }
-SgaApplication >> unregisterWindow: aWindow [
-
-	super unregisterWindow: aWindow.
-	self verifyPossibleExit
-]
-
-{ #category : 'private' }
 SgaApplication >> verifyPossibleExit [
 
 	self windows ifNotEmpty: [ ^ self ].
